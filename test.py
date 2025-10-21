@@ -15,9 +15,6 @@ def test_model(model, test_loader, device):
             # Forward pass through model
             pred_masks = model(images)
 
-            # Apply sigmoid if the model's last layer does not include activation
-            # (In our case, the generator uses sigmoid, so no need)
-
             # Compute Dice score or other evaluation metrics
             dice_score_val = compute_dice_score(pred_masks, masks)
             dice_scores.append(dice_score_val)

@@ -70,21 +70,14 @@ def total_variation_loss(x):
 
 # Knowledge Distillation Loss (combined)
 def kd_loss(teacher_model, student_model, images, masks):
-    # 前向传播
     with torch.no_grad():
         teacher_output = teacher_model(images)
     student_output = student_model(images)
-
-    # 计算各个损失
     ssim = ssim_loss(student_output, teacher_output)
     feature = feature_loss(student_output, teacher_output)
     style = style_loss(student_output, teacher_output)
     tv = total_variation_loss(student_output)
-
-    # 监督损失
     supervised = l1_loss(student_output, masks)
-
-    # 加权求和
     lambda_ssim = 1.0
     lambda_feature = 0.5
     lambda_style = 0.5

@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pth
+.DS_Store
+*.log
+Dataset_UNet/
+.env

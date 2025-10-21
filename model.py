@@ -87,7 +87,7 @@ class TeacherUNet(nn.Module):
 class StudentUNet(nn.Module):
     def __init__(self):
         super(StudentUNet, self).__init__()
-        ngf = 16  # 学生模型使用较少的滤波器
+        ngf = 16
         self.down1 = conv_block(1, ngf, norm=False)  # 256 -> 128
         self.down2 = conv_block(ngf, ngf * 2)  # 128 -> 64
         self.down3 = conv_block(ngf * 2, ngf * 4)  # 64 -> 32
@@ -100,12 +100,11 @@ class StudentUNet(nn.Module):
         self.up2 = deconv_block(ngf * 16, ngf * 8)  # 4 -> 8
         self.up3 = deconv_block(ngf * 16, ngf * 8)  # 8 -> 16
         self.up4 = deconv_block(ngf * 16, ngf * 8)  # 16 -> 32
-        self.up5 = deconv_block(192, 64)  # 32 -> 64（调整输入通道数）
+        self.up5 = deconv_block(192, 64)  # 32 -> 64
         self.up6 = deconv_block(96, 32)  # 64 -> 128
         self.up7 = deconv_block(48, 1, final=True, activation="sigmoid")  # 128 -> 256
 
     def forward(self, x):
-        # 编码器
         d1 = self.down1(x)  # 256 -> 128
         d2 = self.down2(d1)  # 128 -> 64
         d3 = self.down3(d2)  # 64 -> 32
@@ -113,8 +112,6 @@ class StudentUNet(nn.Module):
         d5 = self.down5(d4)  # 16 -> 8
         d6 = self.down6(d5)  # 8 -> 4
         d7 = self.down7(d6)  # 4 -> 2
-
-        # 解码器与跳跃连接
         u1 = self.up1(d7)  # 2 -> 4
         u1 = torch.cat([u1, d6], dim=1)  # 128 + 128 = 256
         u2 = self.up2(u1)  # 4 -> 8
@@ -123,9 +120,9 @@ class StudentUNet(nn.Module):
         u3 = torch.cat([u3, d4], dim=1)  # 128 + 128 = 256
         u4 = self.up4(u3)  # 16 -> 32
         u4 = torch.cat([u4, d3], dim=1)  # 128 + 64 = 192
-        u5 = self.up5(u4)  # 32 -> 64（现在接收到192通道）
+        u5 = self.up5(u4)  # 32 -> 64
         u5 = torch.cat([u5, d2], dim=1)  # 64 + 32 = 96
-        u6 = self.up6(u5)  # 64 -> 128（接收到96通道）
+        u6 = self.up6(u5)  # 64 -> 128
         u6 = torch.cat([u6, d1], dim=1)  # 32 + 16 = 48
         u7 = self.up7(u6)  # 48 -> 256
 
